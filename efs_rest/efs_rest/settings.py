@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django_filters',
     'corsheaders',
     'portfolio',
+    'django.contrib.postgres',
 
 ]
 
@@ -85,10 +86,13 @@ WSGI_APPLICATION = 'efs_rest.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'efs_rest',
+        'USER': 'maverick',
+        'PASSWORD': 'Sampath@33'
     }
 }
+
 
 
 # Password validation
@@ -131,6 +135,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 LOGIN_REDIRECT_URL = '/'
+django_heroku.settings(locals())
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -161,6 +166,5 @@ CORS_ORIGIN_WHITELIST = (
 )
 
 CORS_ORIGIN_ALLOW_ALL = True
-django_heroku.settings(locals())
 
 
