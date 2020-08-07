@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 
 import os
+import django_heroku
 import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -160,5 +161,6 @@ CORS_ORIGIN_WHITELIST = (
 )
 
 CORS_ORIGIN_ALLOW_ALL = True
+django_heroku.settings(locals())
 
 
